@@ -1,45 +1,44 @@
-const form = document.querySelector(".js-form"),
-      input = form.querySelector("input"),
-      greeting = document.querySelector(".js-greetings");
+const nameContainer = document.querySelector(".js-name");
 
-const USER_LS = "currentUser",
-      SHOWING_CN = "showing";
-
-
-function init(){
-    loadName();
+function paintName(name) {
+  nameContainer.innerHTML = "";
+  const title = document.createElement("span");
+  title.className = "name__text";
+  title.innerHTML = `Hello ${name}`;
+  nameContainer.appendChild(title);
 }
 
-function loadName(){
-    const currentUser = localStorage.getItem(USER_LS);
-    if(currentUser === null){      
-         //만들어져 있지 않을 때
-         askForName();
-    }
-    else{                          
-        //만들어져 있을때
-        paintGreeting(currentUser);
-    }
+function handleSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const input = form.querySelector("input");
+  const value = input.value;
+  localStorage.setItem("username", value);
+  paintName(value);
 }
 
-function paintGreeting(text){
-    form.classList.remove(SHOWING_CN);
-    greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `hello ${text}`
+function paintInput() {
+  const input = document.createElement("input");
+  input.placeholder = "Type your name here";
+  input.type = "text";
+  input.className = "name__input";
+  const form = document.createElement("form");
+  form.addEventListener("submit", handleSubmit);
+  form.appendChild(input);
+  nameContainer.appendChild(form);
 }
 
-function askForName(){
-    form.classList.add(SHOWING_CN);
-    form.addEventListener("submit",handleSubmit)
+function loadName() {
+  const name = localStorage.getItem("username");
+  if (name === null) {      //이름을 아직 입력하지 않았을 때
+    paintInput();
+  } else {                  //이름을 입력했을 때
+    paintName(name);
+  }
 }
 
-function handleSubmit(){
-    event.preventDefault();
-    const currentValue = input.value;
-    paintGreeting(currentValue);
-    saveName(currentValue);
+function init() {
+  loadName();
 }
-function saveName(text){
-    localStorage.setItem(USER_LS, text); 
-}
-init(); 
+
+init();

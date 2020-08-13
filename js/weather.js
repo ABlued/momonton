@@ -1,54 +1,53 @@
-const COORDS = 'coords';
 const API_KEY = "a72b4fa53125a6cfcb6c0909aa496d09";
-const weather = document.querySelector(".js-weather");
-init();
+const WEATHER_API = "https://api.openweathermap.org/data/2.5/weather?";
 
+const weather = document.querySelector(".js-weather .weather__text");
 
-function init(){
-    loadCoords();
-}
-
-function loadCoords(){
-    const loadedCoords = localStorage.getItem(COORDS);
-    if(loadedCoords === null){
-        askForCoords();
-    } else {
-        const parseCoords = JSON.parse(loadedCoords);
-        getWeather(parseCoords.latitude, parseCoords.longitude);
-    }
-}
-
-function askForCoords(){
-    navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoErro);
-}
-
-function handleGeoSucces(position){
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    const coordsObj = {
-        latitude,       // latitude : latitude,
-        longitude,      //longitude : longitude,
-    };
-    saveCoords(coordsObj);
-    getWeather(latitude, longitude);
-}
-function handleGeoErro(){
-    console.log("cant access geo location")
-}
-
-function saveCoords(coordsObj){
-    localStorage.setItem(COORDS, JSON.stringify(coordsObj));
-}
-
-function getWeather(lat, lng){
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`).then(function(response){
-        return response.json();
-    }).then(function(json){
-        console.log(json);
-        const temperature = json.main.temp;
-        const place = json.name;
-        console.log(temperature);
-        console.log(place);
-        weather.innerText = `${temperature} @ ${place}`;
+function getWeather(coords) {
+  fetch(
+    `${WEATHER_API}lat=${coords.latitude}&lon=${
+      coords.longitude
+    }&appid=${API_KEY}&units=metric`
+  )
+    .then(response => response.json())
+    .then(json => {
+      const name = json.name;
+      const temperature = json.main.temp;
+      weather.innerHTML = `${Math.floor(temperature)}° @ ${name}`;
     });
 }
+
+function handleGeoSuccess(position) {
+  const lat = position.coords.latitude;
+  const lng = position.coords.longitude;
+  const coords = {
+    lat,
+    lng
+  };
+  localStorage.setItem("coords", JSON.stringify(coords));
+  getWeather(coords);
+}
+
+function handleGeoFailure() {
+  console.log("no location");
+}
+
+function loadWeather() {
+  const currentCoords = localStorage.getItem("coords");
+  if (currentCoords !== null) {
+    const parsedCoords = JSON.parse(currentCoords);
+    getWeather(parsedCoords);
+    //return;
+  } else {
+    navigator.geolocation.getCurrentPosition(
+      handleGeoSuccess,
+      handleGeoFailure
+    );
+  }
+}
+
+function init() {
+  loadWeather();
+}
+
+init();
