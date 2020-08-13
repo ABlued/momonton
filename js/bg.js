@@ -15,7 +15,7 @@ function genRandom(){
 
 function paintImage(imgNumber){
     const image = new Image();
-    image.src = `gallery${imgNumber + 1}.jpg`;
+    image.src = `image/gallery${imgNumber + 1}.jpg`;
     image.classList.add("bgImage");
     body.prepend(image);
 
