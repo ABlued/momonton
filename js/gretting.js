@@ -33,10 +33,11 @@ function paintName(name) {
     title.innerHTML = `안녕 ${name}아 점심으로 ${foodList[randomNumber]} 어때?`;
   }
   else if(15 <= hours && hours < 18){
-    title.innerHTML = `안녕 ${name}아 저녁으로 ${foodList[randomNumber]}  어때?`;
+    title.innerHTML = `안녕 ${name}아 저녁으로 ${foodList[randomNumber]} 어때?`;
   }
   else{
-    title.innerHTML = `오늘도 고생많았어 ${name}아! ^_^ 시원한 맥주 한 캔 어떠니?`;
+    //title.innerHTML = `오늘도 고생많았어 ${name}아! ^_^ 시원한 맥주 한 캔 어떠니?`;
+    title.innerHTML = `안녕 ${name}아 저녁으로 ${foodList[randomNumber]} 어때?`;
   }
   
   nameContainer.appendChild(title);
