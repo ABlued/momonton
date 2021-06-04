@@ -19,7 +19,7 @@ html, css, 바닐라JS, Open API로 만든 미니 프로젝트 Momonton에 대�
 ##### [프로젝트를 직접 보고 싶다면?](https://ablued.github.io/momonton/)
   
 ##### 홈페이지 화면 구성
-![홈페이지 화면](https://user-images.githubusercontent.com/53801395/120751070-59cc3280-c542-11eb-8111-745bdd51827a.jpg)
+![홈페이지 화면](https://user-images.githubusercontent.com/53801395/120751596-453c6a00-c543-11eb-992a-81ad62e315a4.jpg)
 
 ##### 이름을 입력했을때
 ![이름을 입력했을때](https://user-images.githubusercontent.com/53801395/120751077-5b95f600-c542-11eb-99f0-f2af0af38cbd.jpg)
