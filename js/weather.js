@@ -1,5 +1,6 @@
-const API_KEY = "a72b4fa53125a6cfcb6c0909aa496d09";
-const WEATHER_API = "https://api.openweathermap.org/data/2.5/weather?";
+import {api_key, weather_api} from "./key.js"
+const API_KEY = api_key;
+const WEATHER_API = weather_api;
 
 const weather = document.querySelector(".js-weather .weather__text");
 
@@ -37,7 +38,6 @@ function loadWeather() {
   if (currentCoords !== null) {
     const parsedCoords = JSON.parse(currentCoords);
     getWeather(parsedCoords);
-    //return;
   } else {
     navigator.geolocation.getCurrentPosition(
       handleGeoSuccess,

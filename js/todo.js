@@ -18,7 +18,7 @@ function saveToDo(text) {
   persistToDos();
 }
 
-function handleDelete(event) {
+function handleDelete(event) {    //투두리스트 엘리멘트를 삭제
   const target = event.target;
   const li = target.parentElement;
   const ul = li.parentElement;
@@ -30,7 +30,7 @@ function handleDelete(event) {
   persistToDos();
 }
 
-function addToDo(text) {
+function addToDo(text) {    // 투두리스트 엘리멘트를 추가
   const toDo = document.createElement("li");
   toDo.className = "toDo";
   toDo.id = toDos.length + 1;
