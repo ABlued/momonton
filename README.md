@@ -106,8 +106,3 @@ function addToDo(text) {    // 투두리스트 엘리멘트를 추가
   saveToDo(text);
 }
 ```
-
-:exclamation: 느낀 점
----
-Open API를 이용하니 다른 웹사이트의 데이터를 손쉽게 사용할 수 있는 것이 편리하다는 것을 알았다.
-

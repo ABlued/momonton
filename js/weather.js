@@ -15,7 +15,10 @@ function getWeather(coords) {
       const name = json.name;
       const temperature = json.main.temp;
       weather.innerHTML = `${Math.floor(temperature)}° @ ${name}`;
-    });
+    })
+    .catch(error => {
+			console.log(error);
+		});;
 }
 
 function handleGeoSuccess(position) {
