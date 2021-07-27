@@ -1,8 +1,8 @@
 # :sunrise: Momonton 미니 프로젝트
 
-##### 안녕하세요 웹뿌링클치킨이 아니라 웹뿌론트엔드가 되고싶은 삐약삐약 주니어치킨개발자 ABlued입니다!
+##### 안녕하세요 ABlued입니다!
 
-html, css, 바닐라JS, Open API로 만든 미니 프로젝트 Momonton에 대해 소개해드리겠습니다.
+##### html, css, 바닐라JS, Open API로 만든 미니 프로젝트 Momonton에 대해 소개해드리겠습니다.
 
 :clipboard: 프로젝트 개요
 ---
@@ -16,7 +16,7 @@ html, css, 바닐라JS, Open API로 만든 미니 프로젝트 Momonton에 대�
 :wave: 홈페이지 소개
 ---
   
-##### [프로젝트를 직접 보고 싶다면?](https://ablued.github.io/momonton/)
+##### [프로젝트를 직접 보고 싶다면?[]](https://ablued.github.io/momonton/)
   
 ##### 홈페이지 화면 구성
 ![홈페이지 화면](https://user-images.githubusercontent.com/53801395/120751596-453c6a00-c543-11eb-992a-81ad62e315a4.jpg)
